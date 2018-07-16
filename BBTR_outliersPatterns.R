@@ -1,7 +1,7 @@
 ############################################################
 # Statistical outliers - in store size and in sales volume and quantity
 library(data.table)
-tStores <- fread("E:/Dropbox/Teaching/Classes/Data4Teaching/HUB/BBTR/BBTR_Data_20160630/BBTR_20160630_rdb/tStores.csv")
+tStores <- fread("tStores.csv")
 names(tStores)
 summary(tStores$SqFt)
 
@@ -29,7 +29,7 @@ tStores[tStores$SqFt<lw|tStores$SqFt>uw,]
 
 ############################################################
 # Aggregate data by store
-tSales <- fread("E:/Dropbox/Teaching/Classes/Data4Teaching/HUB/BBTR/BBTR_Data_20160630/BBTR_20160630_rdb/tSales.csv")
+tSales <- fread("tSales.csv")
 names(tSales)
 names(tSales)[1] <- "salesID"
 str(tSales)
@@ -59,10 +59,7 @@ dt1_b$Store <- as.factor(dt1_b$Store)
 ggplot(dt1_b,aes(storeSize, salesQ_Store))+geom_boxplot(outlier.color = "red")
 
 #practice problem - boxplot for price and revenue_Store
-  #ggplot(dt1_b,aes(storeSize, avgPrice_Store))+geom_boxplot(outlier.color = "blue")
-  #ggplot(dt1_b,aes(storeSize, revenue_Store))+geom_boxplot(outlier.color = "green")
-# end practice
-
+ 
 head(dt1_b[order(-dt1_b$salesQ_Store),],10)
 
 # practice problem - identify the outliers produced by stores in Q2
@@ -99,18 +96,6 @@ g4_salesQ_Month_avgStore <- ggplot(dt2_a, aes(x=month)) +
 g4_salesQ_Month_avgStore
 
 #practice problem - repeat for revenue
-  # g4_revenue_Month <- ggplot(dt2_a, aes(x=month)) +  
-  #   geom_point(aes(y=revenue_Month))+
-  #   geom_line(aes(y=revenue_Month))+
-  #   scale_x_continuous(breaks=seq(1, 12, 1))
-  # g4_revenue_Month
-  # 
-  # g4_revenue_Month_avgStore <- ggplot(dt2_a, aes(x=month)) +  
-  #   geom_point(aes(y=revenue_Month_avgStore))+
-  #   geom_line(aes(y=revenue_Month_avgStore))+
-  #   scale_x_continuous(breaks=seq(1, 12, 1))
-  # g4_revenue_Month_avgStore
-# end practice
 
 dt2_b <- sqldf("
 SELECT Store, month, 
