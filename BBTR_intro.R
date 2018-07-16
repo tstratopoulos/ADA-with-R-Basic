@@ -1,6 +1,6 @@
 # set working directory to source file location
 library(data.table)
-tStores <- fread("E:/Dropbox/Teaching/Classes/Data4Teaching/HUB/BBTR/BBTR_Data_20160630/BBTR_20160630_rdb/tStores.csv")
+tStores <- fread("tStores.csv")
 names(tStores)
 str(tStores)
 head(tStores)
@@ -37,18 +37,18 @@ storeSizeHistogram <- storeSizeHistogram + ylab("Count (Frequency)")
 storeSizeHistogram
 
 
-tSales <- fread("E:/Dropbox/Teaching/Classes/Data4Teaching/HUB/BBTR/BBTR_Data_20160630/BBTR_20160630_rdb/tSales.csv")
+tSales <- fread("tSales.csv")
 names(tSales)
 names(tSales)[1] <- "salesID"
 str(tSales)
 head(tSales)
 
-tProducts <- fread("E:/Dropbox/Teaching/Classes/Data4Teaching/HUB/BBTR/BBTR_Data_20160630/BBTR_20160630_rdb/tProducts.csv")
+tProducts <- fread("tProducts.csv")
 names(tProducts)
 str(tProducts)
 head(tProducts)
 
-tVendors <- fread("E:/Dropbox/Teaching/Classes/Data4Teaching/HUB/BBTR/BBTR_Data_20160630/BBTR_20160630_rdb/tVendors.csv")
+tVendors <- fread("tVendors.csv")
 names(tVendors)
 str(tVendors)
 head(tVendors)
