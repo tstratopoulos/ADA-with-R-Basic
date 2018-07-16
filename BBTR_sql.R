@@ -1,6 +1,6 @@
 # Set working directory to source file location
 library(data.table)
-tStores <- fread("E:/Dropbox/Teaching/Classes/Data4Teaching/HUB/BBTR/BBTR_Data_20160630/BBTR_20160630_rdb/tStores.csv")
+tStores <- fread("tStores.csv")
 str(tStores)
 
 library(sqldf)
@@ -35,7 +35,7 @@ dt1_h <- sqldf("SELECT City, storeCount
                WHERE City IN ('HORNSEY', 'MOUNTMEND')")
 dt1_h
 
-tSales <- fread("E:/Dropbox/Teaching/Classes/Data4Teaching/HUB/BBTR/BBTR_Data_20160630/BBTR_20160630_rdb/tSales.csv")
+tSales <- fread("tSales.csv")
 names(tSales)
 names(tSales)[1] <- "salesID"
 str(tSales)
